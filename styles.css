@@ -75,3 +75,61 @@ h3{font-size:1.55rem}
 .history-photo{margin:0;background:var(--yellow);padding:14px}
 .history-photo img{display:block;width:100%;height:auto;border:2px solid var(--ink)}
 .history-photo figcaption{padding:12px 4px 2px;font-size:.9rem;line-height:1.35}
+
+
+/* ---------------------------------------------------------------
+   Page photo: sits on the same level as the large page heading.
+   --------------------------------------------------------------- */
+.page-heading{
+  display:grid;
+  grid-template-columns:1fr;
+  align-items:center;
+  gap:28px;
+}
+.page-heading.has-photo{grid-template-columns:1fr auto}
+.page-heading-text{min-width:0}
+.page-heading-text h1{margin-top:.1em}
+.section-photo{
+  width:202px;
+  height:158px;
+  border:3px solid var(--ink);
+  box-shadow:6px 6px 0 var(--ink);
+  background:var(--yellow);
+  overflow:hidden;
+  margin:0 6px 6px 0;
+  align-self:center;
+}
+.section-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.section-head{min-height:0;padding-right:0}
+
+/* ---------------------------------------------------------------
+   Box colours: every box on a page gets its own distinct colour.
+   --------------------------------------------------------------- */
+.card,.panel,.notice,.list-item,.event{background:var(--white)}
+.panel{border:3px solid var(--ink);padding:26px}
+.page-box-1{background:#f6c8d9 !important}   /* rose      */
+.page-box-2{background:#c9e8e8 !important}   /* aqua      */
+.page-box-3{background:#f5e3a5 !important}   /* yellow    */
+.page-box-4{background:#cfe7b9 !important}   /* green     */
+.page-box-5{background:#d9cce9 !important}   /* lavender  */
+.page-box-6{background:#f2d0b2 !important}   /* peach     */
+.page-box-7{background:#bfd8f2 !important}   /* blue      */
+.page-box-8{background:#efc9b8 !important}   /* terracotta*/
+.page-box-9{background:#d5ead2 !important}   /* mint      */
+.page-box-10{background:#eed9f0 !important}  /* orchid    */
+.page-box-11{background:#e6e2c2 !important}  /* olive     */
+.page-box-12{background:#cfe0e0 !important}  /* pale teal */
+
+/* Boxes that are lists or rows need padding for their colour to read. */
+.list-item{padding:12px 16px;border-left:8px solid var(--ink)}
+.event{padding:16px;border:3px solid var(--ink);border-radius:0}
+.event-list{gap:14px}
+
+@media(max-width:800px){
+  .page-heading.has-photo{grid-template-columns:1fr auto;gap:16px}
+  .section-photo{width:142px;height:110px;box-shadow:4px 4px 0 var(--ink)}
+}
+@media(max-width:520px){
+  .page-heading.has-photo{grid-template-columns:1fr}
+  .section-photo{width:100%;max-width:336px;height:180px}
+}
