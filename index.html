@@ -1,63 +1,254 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>North Finchley Town Team</title>
-<meta content="North Finchley Town Team – a community organisation for North Finchley residents, businesses and stakeholders." name="description"/>
-<link href="styles.css" rel="stylesheet"/>
-</head>
-<body>
-<header class="site-header"><nav class="nav">
-<a class="logo-img" href="index.html" aria-label="North Finchley Town Team – home"><picture><source media="(min-width:769px)" srcset="N12TT-logo-80px.png" width="350" height="80"/><img src="N12TT-logo-60px.png" alt="North Finchley Town Team" width="260" height="60"/></picture></a>
-<button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
-<div class="nav-links" id="nav-links"><a class="active" href="index.html">The Town Team</a><a class="" href="get-in-touch.html">Get in touch</a></div>
-</nav></header>
-<main>
-<section class="has-photo page-heading"><div class="page-heading-text"><div class="kicker">North Finchley · N12</div><h1>North Finchley Town Team</h1></div><div class="section-photo"><img alt="North Finchley High Road" src="highStreet1.jpg"/></div></section>
-<section class="section">
-<p class="lede">North Finchley Town Team is focused on building a sustainable community organisation for North Finchley residents, businesses and stakeholders.</p>
-<div class="feature">
-<div class="panel page-box-1"><h3>What the Town Team are</h3>
-<p>A coordinated community organisation representing North Finchley residents and businesses, working together to improve and promote the town centre.</p>
-<h3 style="margin-top:22px">Overall aims</h3>
-<div class="list">
-<div class="list-item">Create a coordinated community organisation representing North Finchley residents and businesses.</div>
-<div class="list-item">Improve and promote the town centre.</div>
-<div class="list-item">Develop stronger relationships with local businesses and property owners.</div>
-<div class="list-item">Develop a stronger collective voice for funding and advocacy.</div>
-<div class="list-item">Plan and support events, community engagement and environmental initiatives.</div>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Rubik:wght@800&display=swap">
+<style>
+/* Layout: leaflet carried onto the web. Heavy black rules divide the page, one bold headline per page, pastel boxed cards for activities. Two views (Home, What's coming up) switched by URL hash. */
+:root {
+  --bg: #FFFBEE;
+  --ink: #111111;
+  --muted: #4A463C;
+  --green: #2D7A5F;
+  --pink: #EFC9DC;
+  --lime: #D5EBC0;
+  --sand: #F7D08F;
+  --mint: #A8D8C6;
+  --card-ink: #111111;
+  --font-display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mark: "Rubik", "Arial Rounded MT Bold", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131F1A; --ink: #F6F1E3; --muted: #CBC5B3; --green: #86D3B0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131F1A; --ink: #F6F1E3; --muted: #CBC5B3; --green: #86D3B0; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  padding-block: 0 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1000px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.015em; }
+p { margin: 0; max-width: 62ch; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+.rule { border: 0; border-top: 6px solid var(--ink); margin: 0; }
+
+/* Header */
+.site-head {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 16px 32px; padding-block: 22px 20px;
+}
+.mark { display: inline-flex; flex-direction: column; align-items: flex-start; text-decoration: none; line-height: 1; font-family: var(--font-mark); font-weight: 800; color: #111; font-size: 15px; text-transform: uppercase; letter-spacing: 0.02em; }
+.mark span { display: block; padding: 4px 9px 3px; border-radius: 8px; box-shadow: 3px 3px 0 #111; margin-bottom: 4px; }
+.mark .m1 { background: var(--lime); }
+.mark .m2 { background: var(--lime); margin-left: 34px; }
+.mark .m3 { background: var(--mint); margin-left: 8px; }
+.mark .m4 { background: var(--mint); margin-left: 34px; }
+.mark.big { font-size: 22px; }
+.mark.big .m2, .mark.big .m4 { margin-left: 50px; }
+.mark.big .m3 { margin-left: 12px; }
+
+.nav { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.nav a { font-weight: 700; font-size: 17px; text-decoration: none; padding: 6px 0 4px; border-bottom: 4px solid transparent; }
+.nav a:hover { border-bottom-color: var(--green); }
+.nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+
+/* Hero */
+.hero { padding-block: 44px 40px; }
+.hero h1 { font-size: clamp(2.4rem, 7.6vw, 4.6rem); font-weight: 800; max-width: 14em; }
+.hero h1 em { font-style: normal; color: var(--green); }
+
+/* Intro */
+.intro { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 36px 48px; padding-block: 40px 44px; align-items: start; }
+.intro h2 { font-size: clamp(1.9rem, 4.6vw, 2.6rem); font-weight: 800; margin-bottom: 18px; }
+.intro p { font-size: clamp(1.1rem, 2.4vw, 1.35rem); line-height: 1.5; }
+
+/* Cards */
+.card {
+  background: var(--tint); color: var(--card-ink);
+  border: 3px solid var(--ink);
+  padding: 26px 28px 28px;
+  display: flex; flex-direction: column; gap: 10px; min-width: 0;
+}
+.card h3 { font-size: 1.55rem; font-weight: 800; }
+.card .when { font-style: italic; font-size: 1.1rem; }
+.card p { max-width: 60ch; }
+.card .tag { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+.card a.more { font-weight: 700; margin-top: 6px; align-self: flex-start; }
+.pink { --tint: var(--pink); }
+.lime { --tint: var(--lime); }
+.sand { --tint: var(--sand); }
+
+/* Find out more */
+.more-head { padding-block: 34px 22px; }
+.more-head h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); font-weight: 800; }
+.ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-bottom: 44px; }
+.way { padding: 4px 28px 4px 0; min-width: 0; }
+.way + .way { padding-left: 28px; border-left: 3px dotted var(--ink); }
+.way h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }
+.way p, .way address { font-size: 1.05rem; font-style: normal; line-height: 1.55; }
+
+/* Page 2 */
+.page-title { padding-block: 40px 28px; }
+.page-title h1 { font-size: clamp(2.2rem, 6.4vw, 3.8rem); font-weight: 800; }
+.events { display: grid; gap: 22px; padding-bottom: 44px; }
+.events .feature { padding: 30px 32px 32px; }
+.events .feature h3 { font-size: clamp(1.7rem, 4vw, 2.3rem); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 2px 0 4px; padding: 0; list-style: none; }
+.facts li { background: var(--card-ink); color: #FFFBEE; font-weight: 700; font-size: 0.95rem; padding: 4px 12px 3px; }
+.lineup { font-weight: 700; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+
+.cta { padding-block: 34px 8px; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between; }
+.cta p { font-size: 1.25rem; font-weight: 700; max-width: 26em; }
+.btn { display: inline-block; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 700; padding: 13px 22px 12px; border: 3px solid var(--ink); }
+.btn:hover { background: var(--green); border-color: var(--green); color: #111; }
+
+/* Footer */
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px; padding-block: 28px 8px; }
+.foot p { font-size: 1rem; color: var(--muted); }
+.foot strong { color: var(--ink); }
+
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  .intro { grid-template-columns: minmax(0, 1fr); }
+  .ways { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .way, .way + .way { padding: 18px 0; border-left: 0; }
+  .way + .way { border-top: 3px dotted var(--ink); }
+  .two { grid-template-columns: minmax(0, 1fr); }
+  .card, .events .feature { padding: 22px 20px 24px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap">
+  <header class="site-head">
+    <a class="mark" href="#home" aria-label="North Finchley Town Team, home">
+      <span class="m1">North</span><span class="m2">Finchley</span><span class="m3">Town</span><span class="m4">Team</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#home" id="nav-home">Home</a>
+      <a href="#whats-on" id="nav-whats-on">What’s coming up</a>
+    </nav>
+  </header>
+  <hr class="rule">
+
+  <main>
+    <!-- PAGE 1 -->
+    <section id="page-home" aria-label="Home">
+      <div class="hero">
+        <h1>Join us to make a difference in <em>North Finchley</em></h1>
+      </div>
+      <hr class="rule">
+
+      <div class="intro">
+        <div>
+          <h2>Hello Neighbour!</h2>
+          <p>We are the North Finchley Town Team, a group of friendly residents and local businesses volunteering together to make a big difference to North Finchley, and we need you! From joining a litter pick, to organising events, we need volunteers to tell us what needs changing and help us change it.</p>
+        </div>
+        <aside class="card pink" aria-label="Next event">
+          <span class="tag">Next up</span>
+          <h3>Festive Fun at artsdepot</h3>
+          <p class="when">12 December 2026, 12.00–3.00pm<br>Drama Studio. Free to all, just turn up.</p>
+          <a class="more" href="#whats-on">See what’s coming up</a>
+        </aside>
+      </div>
+      <hr class="rule">
+
+      <div class="more-head"><h2>Find out more and get involved</h2></div>
+      <div class="ways">
+        <div class="way">
+          <h3>Come to a community meeting</h3>
+          <p>Come to one of our community meetings where we discuss the work that’s happening in North Finchley.</p>
+        </div>
+        <div class="way">
+          <h3>Drop us a note</h3>
+          <address>FAO North Finchley Town Team,<br>c/o artsdepot, 5 Nether Street,<br>Tally Ho Corner, North Finchley,<br>London N12 0GA</address>
+        </div>
+        <div class="way">
+          <h3>Join our mailing list</h3>
+          <p>Receive the occasional email about meetings, litter picks and events.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section id="page-whats-on" aria-label="What’s coming up" hidden>
+      <div class="page-title"><h1>What’s coming up</h1></div>
+      <div class="events">
+        <article class="card pink feature">
+          <h3>Festive Fun at artsdepot</h3>
+          <ul class="facts">
+            <li>12 December 2026</li>
+            <li>12.00–3.00pm</li>
+            <li>Drama Studio</li>
+            <li>Free to all, just turn up</li>
+          </ul>
+          <p>The North Finchley Town Team are joining forces with artsdepot to bring people together through arts, creativity and community at a festive themed event.</p>
+          <p class="lineup">Featuring the N12 community choir, Sofia Weaver, Innovation Dance School and The Peatles providing the entertainment.</p>
+          <p>There will also be a selection of local craft stalls to enjoy.</p>
+        </article>
+
+        <div class="two">
+          <article class="card lime">
+            <h3>Join a community litter pick</h3>
+            <p class="when">Regular dates</p>
+            <p>Help keep North Finchley clean, welcoming and looking its best. Meet fellow residents and make a visible difference to our local environment.</p>
+            <p><strong>Everyone can play a part. Even half an hour can help.</strong></p>
+          </article>
+          <article class="card sand">
+            <h3>Come to a community meeting</h3>
+            <p class="when">About once a month</p>
+            <p>Have an idea for our town? Want to help shape local events or improve the High Road? Come along, share your views and find out how you can get involved.</p>
+          </article>
+        </div>
+      </div>
+      <hr class="rule">
+      <div class="cta">
+        <p>Want to help, or have an idea for the High Road?</p>
+        <a class="btn" href="#home">How to get involved</a>
+      </div>
+    </section>
+  </main>
+
+  <hr class="rule" style="margin-top:40px">
+  <footer class="foot">
+    <a class="mark big" href="#home" aria-label="North Finchley Town Team, home">
+      <span class="m1">North</span><span class="m2">Finchley</span><span class="m3">Town</span><span class="m4">Team</span>
+    </a>
+    <p><strong>NorthFinchleyTownCentre.co.uk</strong><br>c/o artsdepot, 5 Nether Street, Tally Ho Corner,<br>North Finchley, London N12 0GA</p>
+  </footer>
 </div>
-</div>
-<div class="panel page-box-2"><h3>What we are doing</h3>
-<p>We are at the organising stage. Current work includes:</p>
-<div class="list">
-<div class="list-item">Develop governance and structure.</div>
-<div class="list-item">Create a website — events, news and calendar updates.</div>
-<div class="list-item">Branding and communications.</div>
-<div class="list-item">Investigating funding opportunities.</div>
-</div>
-</div>
-</div>
-<div class="panel page-box-3" style="margin-top:18px">
-<h3>Possible events</h3>
-<p>Ideas being explored for the Town Team's events programme include:</p>
-<div class="list">
-<div class="list-item">Community events</div>
-<div class="list-item">Networking events</div>
-<div class="list-item">Public engagement events</div>
-<div class="list-item">Involvement of local groups, such as the N12 Community Choir</div>
-<div class="list-item">Event sponsorship opportunities</div>
-<div class="list-item">Town walkabouts</div>
-<div class="list-item">Litter-pick activities</div>
-</div>
-</div>
-<div class="notice" style="margin-top:18px">Want to get involved? <a href="get-in-touch.html">Get in touch</a> and come along to a Town Team meet-up.</div>
-</section>
-</main>
-<footer class="footer"><div class="footer-inner">
-<div><a class="logo-img" href="index.html" aria-label="North Finchley Town Team – home" style="background:none;padding:0;border:0"><img src="N12TT-logo-60px.png" alt="North Finchley Town Team" width="260" height="60"/></a><p>North Finchley Town Team: building a sustainable community organisation for North Finchley residents, businesses and stakeholders.</p></div>
-<div><strong>Pages</strong><p class="small"><a href="index.html">The Town Team</a><br/><a href="get-in-touch.html">Get in touch</a></p></div>
-<div><strong>Contact</strong><p class="small"><a href="mailto:info@northfinchleytowncentre.co.uk">info@northfinchleytowncentre.co.uk</a></p></div>
-</div></footer>
-<script src="script.js"></script>
+
+<script>
+(function () {
+  var pages = { "home": document.getElementById("page-home"), "whats-on": document.getElementById("page-whats-on") };
+  var navs = { "home": document.getElementById("nav-home"), "whats-on": document.getElementById("nav-whats-on") };
+  function show() {
+    var key = (location.hash || "").replace("#", "");
+    if (!pages[key]) key = "home";
+    Object.keys(pages).forEach(function (k) {
+      pages[k].hidden = k !== key;
+      if (k === key) navs[k].setAttribute("aria-current", "page"); else navs[k].removeAttribute("aria-current");
+    });
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", show);
+  show();
+})();
+</script>
+
 </body></html>
