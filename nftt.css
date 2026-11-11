@@ -1,0 +1,128 @@
+/* Layout: the leaflet carried onto the web. Heavy black rules divide the page, one big headline per page, pastel boxed cards for activities. Two views (Home, What's coming up) switched by URL hash. Light look only, by design. */
+:root {
+  --bg: #FFFBEE;
+  --ink: #111111;
+  --on-ink: #FFFBEE;
+  --muted: #4A463C;
+  --green: #2D7A5F;
+  --pink: #EFC9DC;
+  --lime: #D5EBC0;
+  --sand: #F7D08F;
+  --font: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+/* No dark theme: the page stays light whatever the device or viewer setting. */
+html, body { background: var(--bg); color-scheme: light; }
+
+* { box-sizing: border-box; }
+body {
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 1.55;
+  padding-top: 0;
+  padding-bottom: 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.wrap { max-width: 1000px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font); line-height: 1.1; margin: 0; letter-spacing: -0.015em; }
+h1, h2 { text-wrap: balance; }
+p { margin: 0; max-width: 62ch; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+.rule { border: 0; border-top: 6px solid var(--ink); margin: 0; }
+
+/* Header */
+.site-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 22px 0 20px; }
+.logo { display: block; line-height: 0; }
+.logo img { display: block; width: 240px; max-width: 100%; height: auto; }
+.nav { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.nav a { font-weight: 700; font-size: 17px; text-decoration: none; padding: 8px 0 4px; border-bottom: 4px solid transparent; }
+.nav a:hover { border-bottom-color: var(--green); }
+.nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+
+/* Hero */
+.hero { padding: 44px 0 40px; }
+.hero h1 { font-size: clamp(2.3rem, 7.6vw, 4.6rem); font-weight: 800; max-width: 14em; }
+.hero h1 em { font-style: normal; color: var(--green); }
+
+/* Intro */
+.intro { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 36px 48px; padding: 40px 0 44px; align-items: start; }
+.intro h2 { font-size: clamp(1.9rem, 4.6vw, 2.6rem); font-weight: 800; margin-bottom: 18px; }
+.intro p { font-size: clamp(1.1rem, 2.4vw, 1.35rem); line-height: 1.5; }
+
+/* Cards */
+.card { background: var(--tint); color: var(--ink); border: 3px solid var(--ink); padding: 26px 28px 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card h3 { font-size: 1.55rem; font-weight: 800; }
+.card .when { font-style: italic; font-size: 1.1rem; }
+.card p { max-width: 60ch; }
+.card .tag { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.875rem; }
+.card a.more { font-weight: 700; margin-top: 6px; align-self: flex-start; }
+.pink { --tint: var(--pink); }
+.lime { --tint: var(--lime); }
+.sand { --tint: var(--sand); }
+
+/* Find out more */
+.more-head { padding: 34px 0 22px; }
+.more-head h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); font-weight: 800; }
+.ways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding-bottom: 44px; }
+.way { padding: 4px 48px 4px 0; min-width: 0; }
+.way + .way { padding: 4px 0 4px 48px; border-left: 3px dotted var(--ink); }
+.way h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }
+.way p, .way address { max-width: none; font-size: 1.05rem; font-style: normal; line-height: 1.55; }
+.way p + p { margin-top: 10px; }
+
+/* Email address with copy button */
+.email { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 12px; }
+.email a { font-weight: 700; font-size: 1.05rem; white-space: nowrap; }
+.copy { font: inherit; font-weight: 700; font-size: 0.9rem; color: var(--ink); background: transparent; border: 2px solid var(--ink); padding: 5px 12px 4px; cursor: pointer; }
+.copy:hover { background: var(--ink); color: var(--on-ink); }
+
+/* Page 2 */
+.page-title { padding: 40px 0 28px; }
+.page-title h1 { font-size: clamp(2.2rem, 6.4vw, 3.8rem); font-weight: 800; }
+.events { display: grid; gap: 22px; padding-bottom: 44px; }
+.events .feature { padding: 30px 32px 32px; }
+.events .feature h3 { font-size: clamp(1.6rem, 4vw, 2.3rem); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 2px 0 4px; padding: 0; list-style: none; }
+.facts li { background: var(--ink); color: var(--on-ink); font-weight: 700; font-size: 0.95rem; padding: 4px 12px 3px; }
+.lineup { font-weight: 700; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+
+.signup { border: 3px solid var(--ink); padding: 24px 28px 26px; margin: 34px 0 0; background: #FFFFFF; }
+.signup p { font-size: 1.15rem; font-weight: 500; max-width: 46em; }
+
+/* Footer */
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px; padding: 28px 0 8px; }
+.foot .logo img { width: 260px; }
+.foot p { font-size: 1rem; color: var(--muted); }
+.foot strong { color: var(--ink); }
+
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  .intro { grid-template-columns: minmax(0, 1fr); }
+  .ways { grid-template-columns: minmax(0, 1fr); }
+  .way, .way + .way { padding: 18px 0; border-left: 0; }
+  .email a { font-size: 0.95rem; }
+  .way + .way { border-top: 3px dotted var(--ink); }
+  .two { grid-template-columns: minmax(0, 1fr); }
+  .card, .events .feature { padding: 22px 20px 24px; }
+  .signup { padding: 20px; }
+  .logo img { width: 200px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+/* Events listing + detail pages */
+.btn { display: inline-block; align-self: flex-start; margin-top: 8px; font: inherit; font-weight: 700; font-size: 1.05rem; color: var(--ink); background: #FFFFFF; border: 3px solid var(--ink); padding: 8px 20px 7px; text-decoration: none; cursor: pointer; }
+.btn:hover { background: var(--ink); color: var(--on-ink); }
+.btn.ghost { background: transparent; }
+.btn.ghost:hover { background: var(--ink); color: var(--on-ink); }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; padding: 0 0 44px; }
+.actions .btn { margin-top: 0; }
+.events .card .facts { margin-bottom: 6px; }
+.detail p + p { margin-top: 6px; }
+.crumb { padding: 22px 0 0; font-weight: 700; }
