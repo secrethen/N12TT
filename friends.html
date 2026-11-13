@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex">
+<title>Our Friends — North Finchley Town Team</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="nftt.css">
+<style>
+  .friends { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding-bottom: 44px; }
+  .friends .card { padding: 24px 26px 26px; }
+  .friends .logo-box { background: #FFFFFF; border: 3px solid var(--ink); height: 110px; display: flex; align-items: center; justify-content: center; padding: 14px 20px; margin-bottom: 6px; }
+  .friends .logo-box img { display: block; max-width: 100%; max-height: 80px; width: auto; height: auto; object-fit: contain; }
+  .friends .logo-box.no-logo span { font-weight: 800; font-size: 1.4rem; text-align: center; letter-spacing: -0.015em; }
+  .friends .card .btn { margin-top: auto; }
+  .friends .card p { flex-grow: 1; }
+  .intro-line { padding: 0 0 28px; }
+  .intro-line p { font-size: clamp(1.1rem, 2.4vw, 1.35rem); line-height: 1.5; max-width: 46em; }
+  @media (max-width: 760px) { .friends { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <a class="logo" href="index.html#home" aria-label="North Finchley Town Team, home"><img src="North%20Finchley%20Town%20Team.png" width="551" height="128" alt="North Finchley Town Team"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#events">Events</a>
+    </nav>
+  </header>
+  <hr class="rule">
+  <main>
+    <div class="crumb"><a href="index.html#home">&larr; Back to home</a></div>
+    <div class="page-title"><h1>Our Friends</h1></div>
+    <div class="intro-line"><p>North Finchley is stronger when we work together. These are some of the local organisations we collaborate with.</p></div>
+
+    <div class="friends">
+      <article class="card pink">
+        <div class="logo-box"><img src="logos/artsdepot.jpg" alt="artsdepot logo" loading="lazy"></div>
+        <h3>artsdepot</h3>
+        <p>A creative home for everyone at Tally Ho Corner, with theatre, comedy, music, family shows, a gallery, café and classes. It is also our host and home for events such as Festive Fun.</p>
+        <a class="btn" href="https://www.artsdepot.co.uk" target="_blank" rel="noopener">Visit artsdepot</a>
+      </article>
+
+      <article class="card lime">
+        <div class="logo-box"><img src="logos/N12CommChoir.jpg" alt="N12 Community Choir logo" loading="lazy"></div>
+        <h3>N12 Community Choir</h3>
+        <p>A welcoming, volunteer-run choir that rehearses on Thursday evenings and sings everything from pop and gospel to jazz, soul and world music. You don't need to read music to join.</p>
+        <a class="btn" href="https://www.n12choir.org.uk" target="_blank" rel="noopener">Visit the choir</a>
+      </article>
+
+      <article class="card sand">
+        <div class="logo-box"><img src="logos/id.jpg" alt="Innovation Dance Studios logo" loading="lazy" onerror="this.parentNode.className='logo-box no-logo';this.parentNode.innerHTML='<span>Innovation Dance Studios</span>'"></div>
+        <h3>Innovation Dance Studios</h3>
+        <p>A dance school with a studio in Finchley, teaching children and adults for over 15 years in styles including ballet, street, tap and musical theatre.</p>
+        <a class="btn" href="https://www.innovationdancestudios.co.uk" target="_blank" rel="noopener">Visit Innovation Dance</a>
+      </article>
+
+      <article class="card pink">
+        <div class="logo-box"><img src="logos/thefinch.png" alt="The Finch logo" loading="lazy"></div>
+        <h3>The Finch</h3>
+        <p>Independent local news for Finchley and the wider London Borough of Barnet, covering the council, community, sport, food and culture.</p>
+        <a class="btn" href="https://thefinch.news/" target="_blank" rel="noopener">Read The Finch</a>
+      </article>
+
+      <article class="card lime">
+        <div class="logo-box"><img src="logos/foodbank.png" alt="Finchley Foodbank logo" loading="lazy" onerror="this.parentNode.className='logo-box no-logo';this.parentNode.innerHTML='<span>Finchley Foodbank</span>'"></div>
+        <h3>Finchley Foodbank</h3>
+        <p>Provides food and essentials to people in need across Barnet, and relies on donations and volunteers from the local community to keep its shelves stocked.</p>
+        <a class="btn" href="https://www.finchleyfoodbank.org.uk/" target="_blank" rel="noopener">Visit Finchley Foodbank</a>
+      </article>
+
+      <article class="card sand">
+        <div class="logo-box"><img src="https://thefinchleycharities.org/wp-content/uploads/2017/11/finchley-charities-logo.png" alt="The Finchley Charities logo" loading="lazy" onerror="this.parentNode.className='logo-box no-logo';this.parentNode.innerHTML='<span>The Finchley Charities</span>'"></div>
+        <h3>The Finchley Charities</h3>
+        <p>A community housing charity offering safe, secure homes for older people in the area, with a history of local giving that stretches back to 1488.</p>
+        <a class="btn" href="https://thefinchleycharities.org/" target="_blank" rel="noopener">Visit The Finchley Charities</a>
+      </article>
+
+      <article class="card pink">
+        <div class="logo-box"><img src="logos/hab.jpg" alt="Homeless Action in Barnet logo" loading="lazy"></div>
+        <h3>Homeless Action in Barnet</h3>
+        <p>Supporting Barnet's most vulnerable people since 1997 with a welcome, food, a hot shower and practical help towards finding accommodation and independence.</p>
+        <a class="btn" href="https://www.habcentre.org/" target="_blank" rel="noopener">Visit HAB</a>
+      </article>
+    </div>
+
+    <div class="actions"><a class="btn ghost" href="index.html#home">Back to home</a></div>
+  </main>
+  <hr class="rule" style="margin-top:40px">
+  <footer class="foot">
+    <a class="logo" href="index.html#home" aria-label="North Finchley Town Team, home"><img src="North%20Finchley%20Town%20Team.png" width="551" height="128" alt="North Finchley Town Team"></a>
+    <p><strong>North Finchley Town Team</strong><br>c/o artsdepot, 5 Nether Street, Tally Ho Corner,<br>North Finchley, London N12 0GA</p>
+  </footer>
+</div>
+</body>
+</html>
