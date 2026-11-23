@@ -9,11 +9,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap">
 <link rel="stylesheet" href="nftt.css">
 <style>
-  .friends { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding-bottom: 44px; }
-  .friends .card { padding: 24px 26px 26px; }
-  .friends .logo-box { background: #FFFFFF; border: 3px solid var(--ink); height: 110px; display: flex; align-items: center; justify-content: center; padding: 14px 20px; margin-bottom: 6px; }
-  .friends .logo-box img { display: block; max-width: 100%; max-height: 80px; width: auto; height: auto; object-fit: contain; }
-  .friends .logo-box.no-logo span { font-weight: 800; font-size: 1.4rem; text-align: center; letter-spacing: -0.015em; }
+  .friends { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-bottom: 36px; }
+  .friends .card { padding: 16px 18px 18px; }
+  .friends .card h3 { font-size: 1.15rem; margin: 6px 0 4px; }
+  .friends .card p { font-size: 0.92rem; line-height: 1.4; margin: 0 0 10px; }
+  .friends .card .btn { font-size: 0.85rem; padding: 8px 14px; }
+  .friends .logo-box { background: #FFFFFF; border: 3px solid var(--ink); height: 104px; display: flex; align-items: center; justify-content: center; padding: 6px 10px; margin-bottom: 4px; }
+  .friends .logo-box img { display: block; max-width: 100%; max-height: 90px; width: auto; height: auto; object-fit: contain; }
+  .friends .logo-box.no-logo span { font-weight: 800; font-size: 1.1rem; text-align: center; letter-spacing: -0.015em; line-height: 1.15; }
   .friends .card .btn { margin-top: auto; }
   .friends .card p { flex-grow: 1; }
   .intro-line { padding: 0 0 28px; }
@@ -85,6 +88,13 @@
         <h3>GoodGym Barnet</h3>
         <p>A group of local residents who run, walk or cycle to help community projects and older people in Barnet, from hanging curtains to shovelling compost. Every session is different, and new members are welcome.</p>
         <a class="btn" href="https://www.goodgym.org/v3/areas/barnet" target="_blank" rel="noopener">Visit GoodGym Barnet</a>
+      </article>
+
+      <article class="card sand">
+        <div class="logo-box"><img src="logos/pollinator.jpg" alt="Finchley Pollinator Project logo" loading="lazy" onerror="this.parentNode.className='logo-box no-logo';this.parentNode.innerHTML='<span>Finchley Pollinator Project</span>'"></div>
+        <h3>Finchley Pollinator Project</h3>
+        <p>A community-led group of local volunteers creating pollinator-friendly habitats across Finchley, with free plants and bulbs, planting workshops and talks. Join the conversation on Facebook.</p>
+        <a class="btn" href="https://www.facebook.com/groups/finchleypollinatorproject/" target="_blank" rel="noopener">Visit on Facebook</a>
       </article>
     </div>
 
